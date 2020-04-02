@@ -8,7 +8,7 @@
 		<title>Commerce Bank Validation Tool</title>
 		
 		<style media="screen">
-		#openFile, #validate, #cancel {
+		#openFile, #validate, #cancel, #messageBox {
 			padding: 10px;
 			color: white;
 			background-color: #006400;
@@ -24,6 +24,7 @@
 			border: 1px solid #000;
 			border-radius: 5px;
 			cursor: pointer;
+			width: 200px;
 		}
 		
 		#openFile: hover {
@@ -49,7 +50,15 @@
 	
 	<textarea id="FileContents" rows="35" cols="95"></textarea>
 	
+	<div id="messageBox" align="center">Message Box</div>
+
+	<p id="messageTextBox" align="center">This is where Error message will appear. </p>
+
+
+	<div id="messageBox" align="center">Company Specification/ File Details</div>	
+	
 	<script type="text/javascript">
+	<!-- This gets the element on the page, when the button is clicked, calls function to display onto screen -->
 		document.getElementById("openFile").addEventListener('change', function(){
 			var fr = new FileReader();
 				fr.onload = function(){
@@ -57,6 +66,14 @@
 				}
 			fr.readAsText(this.files[0]);
 	})
+	
+
+	    document.getElementById("validate").addEventListener('change', function(){
+	    	var validateText = "Validate button has been hit. Errors will appear here."
+	   
+		  document.getElementById("messageTextBox").textContent = validateText;
+	 })
+	  
 	</script>
 </body>
 </html>
