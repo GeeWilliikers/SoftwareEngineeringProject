@@ -50,12 +50,13 @@
 	
 	<textarea id="FileContents" rows="35" cols="95"></textarea>
 	
-	<div id="messageBox" align="center">Message Box</div>
+	<div id="messageBox1" align="center">Message Box</div>
 
 	<p id="messageTextBox" align="center">This is where Error message will appear. </p>
 
-
-	<div id="messageBox" align="center">Company Specification/ File Details</div>	
+	<div id="messageBox2" align="center">Company Specification/ File Details</div>	
+	
+	<!-- Chris code goes here -->
 	
 	<script type="text/javascript">
 	<!-- This gets the element on the page, when the button is clicked, calls function to display onto screen -->
@@ -67,8 +68,9 @@
 			fr.readAsText(this.files[0]);
 	})
 	
-
+<!--Make Validate button work -->
 	    document.getElementById("validate").addEventListener('change', function(){
+	    	
 	    	var validateText = "Validate button has been hit. Errors will appear here."
 	   
 		  document.getElementById("messageTextBox").textContent = validateText;
