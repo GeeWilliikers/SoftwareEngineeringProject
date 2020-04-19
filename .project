@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>SoftwareEngineeringProject</name>
@@ -9,3 +10,11 @@
 	<natures>
 	</natures>
 </projectDescription>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SoftwareEngineeringProject</name>
+	<natures>
+	</natures>
+</projectDescription>
+>>>>>>> Christopher

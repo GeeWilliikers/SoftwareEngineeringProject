@@ -1,5 +1,4 @@
 package SemesterProject.SemesterProject.controller;
-
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-
+	public TestUnits testUnits = new TestUnits();
 	@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
