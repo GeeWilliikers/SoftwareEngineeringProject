@@ -57,6 +57,11 @@
 	<div id="messageBox2" align="center">Company Specification/ File Details</div>	
 	
 	<!-- Chris code goes here -->
+	<svg width="710" height="15">
+	<rect width="710" height="15" fill="black" stroke-width="2" stroke="black"/>
+	<text fill="#ffffff" font-size="15" font-family="Times New Roman" x="223" y="12">Company Specification / File Details</text>
+</svg>
+<br/>
 	<svg width=230" height="20">
 	<rect width="230" height="20" fill="white" stroke-width="2" stroke="black"/>
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="15" y="15">FILE HEADER RECORD</text>
