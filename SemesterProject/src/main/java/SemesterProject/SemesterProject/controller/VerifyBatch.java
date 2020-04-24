@@ -98,7 +98,7 @@ public class VerifyBatch {
 			addIncorrect(fields[6]);
 		}
 		//field 7
-		if (Pattern.matches("[A-Za-z0-9]{10}", fields[7]))	{
+		if (Pattern.matches("\\w+\\s*", fields[7]))	{
 			addCorrect(fields[7]);
 			batchCorrectFields[7] = true;
 		}
@@ -143,7 +143,7 @@ public class VerifyBatch {
 			addIncorrect(fields[11]);
 		}
 		//field 12
-		if (Pattern.matches("[ +]{8}", fields[12]))	{
+		if (Pattern.matches("\\s+{8}", fields[12]))	{
 			addCorrect(fields[12]);
 			batchCorrectFields[12] = true;
 		}

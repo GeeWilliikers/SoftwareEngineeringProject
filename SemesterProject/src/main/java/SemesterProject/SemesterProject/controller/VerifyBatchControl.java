@@ -14,7 +14,7 @@ public class VerifyBatchControl {
 		//field
 		int j = 0;
 		
-		fields[1] = batchControlText.substring(0, j);
+		fields[1] = batchControlText.substring(0, 1);
 		j++;
 		fields[2] = batchControlText.substring(j, 4);
 		j+=3;
@@ -49,7 +49,7 @@ public class VerifyBatchControl {
 			addIncorrect(fields[1]);
 		}
 		//field 2
-		if (Pattern.matches("[0-9]", fields[2])) {
+		if (Pattern.matches("\\d{3}", fields[2])) {
 			batchControlCorrectFields[2] = true;
 			addCorrect(fields[2]);
 		}
@@ -58,7 +58,7 @@ public class VerifyBatchControl {
 			addIncorrect(fields[2]);
 		}
 		//field 3
-		if (Pattern.matches("[0-9]", fields[3])) {
+		if (Pattern.matches("\\d{6}", fields[3])) {
 			batchControlCorrectFields[3] = true;
 			addCorrect(fields[3]);
 		}
