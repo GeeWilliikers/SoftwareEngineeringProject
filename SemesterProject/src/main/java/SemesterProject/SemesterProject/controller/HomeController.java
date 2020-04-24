@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class HomeController {
@@ -29,10 +29,10 @@ public class HomeController {
 		return uploadDirectory;		
 	}
 	
-	@RequestMapping(method = RequestMethod.POST,value = "/test")
+	@RequestMapping(method = RequestMethod.GET,value = "/test")
 	public ModelAndView frontEndTest()
 	{
-		ModelAndView modelAndView = new ModelAndView("home");
+		ModelAndView modelAndView = new ModelAndView("uploadStatusView");
 		modelAndView.addObject("immediateDestination", "101000019");
 		modelAndView.addObject("immediateOrigin", "741258964");
 		modelAndView.addObject("immediateOriginName", "TESTING COMPANY");
@@ -48,9 +48,8 @@ public class HomeController {
 		modelAndView.addObject("fcEntryHash", "0181800018");
 		modelAndView.addObject("fcTTLDebitEntryAmount", "25.00");
 		modelAndView.addObject("fcTTLCreditEntryAmount", "78.00");
-		ArrayList<boolean[]> errors = new ArrayList<boolean[]>();
-		errors.add(new boolean[] {true,true,true,false});
-		modelAndView.addObject("errors", errors);
+		String displayString = testUnits.getCorrectString();
+		modelAndView.addObject("displayString", displayString);
 		
 		return modelAndView;
 	}
@@ -58,7 +57,9 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.POST,value = "/upload")
 	public ModelAndView upload(Model model,@RequestParam("file") MultipartFile file) throws IOException
 	{
-		ModelAndView modelAndView = new ModelAndView("uploadStatusView");
+		//ModelAndView modelAndView = new ModelAndView("uploadStatusView");
+		ModelAndView modelAndView = null;
+		modelAndView = new ModelAndView("uploadStatusView");
 		System.out.println("/upload called");
 		Path fileNameAndPath = Paths.get(getUploadDirectory(), file.getOriginalFilename());
 		
@@ -85,7 +86,9 @@ public class HomeController {
 		modelAndView.addObject("fcEntryHash", verifyMaster.displayInfo[12]);
 		modelAndView.addObject("fcTTLDebitEntryAmount", verifyMaster.displayInfo[13]);
 		modelAndView.addObject("fcTTLCreditEntryAmount", verifyMaster.displayInfo[14]);
-		modelAndView.addObject("validLines", verifyMaster.validLines);
+		modelAndView.addObject("displayString", verifyMaster.displayString);
+		verifyMaster = null;
 		return modelAndView;
+		
 	}
 }

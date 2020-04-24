@@ -15,7 +15,7 @@
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
 	</properties>
-
+	
 	<dependencies>
 		<!-- Spring core & mvc -->
 		<dependency>
@@ -79,6 +79,11 @@
     		<groupId>commons-io</groupId>
     		<artifactId>commons-io</artifactId>
     		<version>2.4</version>
+		</dependency>
+		<dependency>
+    		<groupId>net.imagej</groupId>
+    		<artifactId>ij</artifactId>
+    		<version>1.51h</version>
 		</dependency>
 	</dependencies>
 

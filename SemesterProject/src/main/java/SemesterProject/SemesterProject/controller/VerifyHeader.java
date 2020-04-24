@@ -9,6 +9,7 @@ public class VerifyHeader {
 	//array fields will start at index one and correspond to field 1, field 2 = index 2, field 3 = index 3, etc
 	public String fields[] = new String[14];
 	public boolean correctFields[] = new boolean[14];
+	public static String displayString ="";
 	
 	public VerifyHeader(String headerText)
 	{
@@ -60,75 +61,125 @@ public class VerifyHeader {
 	private void initCorrectFields()
 	{
 		//field 1
-		if(fields[1].equals("1"))
+		if(fields[1].equals("1"))	{
 			correctFields[1] = true;
-		else
+			addCorrect(fields[1]);
+		}
+		else	{
 			correctFields[1] = false;
+			addIncorrect(fields[1]);
+		}
 		//field 2
-		if(fields[2].equals("01"))
+		if(fields[2].equals("01"))	{
 			correctFields[2] = true;
-		else
+			addCorrect(fields[2]);
+		}
+		else	{
 			correctFields[2] = false;
+			addIncorrect(fields[2]);
+		}
 		//field 3
-		if(fields[3].equals("_101000019"))
+		if(fields[3].equals(" 101000019"))	{
 			correctFields[3] = true;
-		else
+			addCorrect(fields[3]);
+		}
+		else	{
 			correctFields[3] = false;
+			addIncorrect(fields[3]);
+		}
 		//field 4
-		if(Pattern.matches("/s[0-9]{9}", fields[4]))
+		if(Pattern.matches("\\s[0-9]{9}", fields[4]))	{
 			correctFields[4] = true;
-		else
+			addCorrect(fields[4]);
+		}
+		else	{
 			correctFields[4] = false;
+			addIncorrect(fields[4]);
+		}
 		//field 5
 		try {
             LocalDate.parse(fields[5], DateTimeFormatter.ofPattern("yyMMdd"));
             correctFields[5] = true;
+            addCorrect(fields[5]);
         } catch (DateTimeParseException e) {
             correctFields[5] = false;
+			addIncorrect(fields[5]);
         }
 		//field 6
-		if(Pattern.matches("//s{4}", fields[6]))	//if field 6 is not listed
+		if(Pattern.matches("\\s{4}", fields[6]))	{	//if field 6 is not listed
 			correctFields[6] = true;
+			addCorrect(fields[6]);
+		}
 		else
 		{
 			try	{
 				LocalDate.parse(fields[6], DateTimeFormatter.ofPattern("HHmm"));
 				correctFields[6] = true;
+				addCorrect(fields[6]);
 			}
 			catch(DateTimeParseException e)	{
 				correctFields[6] = false;
+				addIncorrect(fields[6]); 
 			}
 		}
 		
 		//field 7
-		if(Pattern.matches("[A-Z]", fields[7]) || Pattern.matches("\\d", fields[7]) )
+		if(Pattern.matches("[A-Z]", fields[7]) || Pattern.matches("\\d", fields[7]) )	{
 			correctFields[7] = true;
-		else
+			addCorrect(fields[7]);
+		}
+		else	{
 			correctFields[7] = false;
+			addIncorrect(fields[7]);
+		}
 		//field 8
-		if(fields[8].equals("094"))
+		if(fields[8].equals("094"))	{
 			correctFields[8] = true;
-		else
+			addCorrect(fields[8]);
+		}
+		else	{
 			correctFields[8] = false;
+			addIncorrect(fields[8]);
+		}
 		//field 9
-		if(fields[9].equals("10"))
+		if(fields[9].equals("10"))	{
 			correctFields[9] = true;
-		else
+			addCorrect(fields[9]);
+		}
+		else	{
 			correctFields[9] = false;
+			addIncorrect(fields[9]);
+		}
 		//field 10
-		if(fields[10].contentEquals("1"))
+		if(fields[10].contentEquals("1"))	{
 			correctFields[10] = true;
-		else
+			addCorrect(fields[10]);
+		}
+		else	{
 			correctFields[10] = false;
+			addIncorrect(fields[10]);
+		}
 		//fields 11
-		if(fields[11].equals("Testing1 Bank          ") || Pattern.matches("//s{23}", fields[11])) 
+		if(fields[11].equals("Testing1 Bank          ") || Pattern.matches("\\s{23}", fields[11])) 	{
 			correctFields[11]= true;
-		else
+			addCorrect(fields[11]);
+		}
+		else	{
 			correctFields[11] = false;
+			addIncorrect(fields[11]);
+		}
 		//field 12
 		correctFields[12] = true;	//company name, so it can be anything, no need to validate
+		addCorrect(fields[12]);
 		//field 13
 		correctFields[13] = true;	//no stipulations given for field 13 so it can be anything
+		addCorrect(fields[13]);
+	}
+	private static void addCorrect(String myAdd) {
+		displayString += myAdd;	
+	}
+	private static void addIncorrect(String myAdd) {
+		displayString += "<span class = 'incorrect'>"+myAdd+"</span>";	
 	}
 
 }

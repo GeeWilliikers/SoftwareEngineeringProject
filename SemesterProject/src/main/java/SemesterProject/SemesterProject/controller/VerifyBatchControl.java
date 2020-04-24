@@ -6,14 +6,15 @@ public class VerifyBatchControl {
 	String batchControlText;
 	String[] fields = new String[12];
 	boolean[] batchControlCorrectFields = new boolean[12];
+	public static String displayString = "";
 	
 	public VerifyBatchControl(String batchControlText) {
 		this.batchControlText = batchControlText;
 		
 		//field
-		int j = 1;
+		int j = 0;
 		
-		fields[1] = batchControlText.substring(j, j);
+		fields[1] = batchControlText.substring(0, j);
 		j++;
 		fields[2] = batchControlText.substring(j, 4);
 		j+=3;
@@ -39,59 +40,109 @@ public class VerifyBatchControl {
 	
 	private void batchControlCorrectFields() {
 		//field 1
-		if (fields[1].equals("8"))
+		if (fields[1].equals("8")) {
 			batchControlCorrectFields[1] = true;
-		else
+			addCorrect(fields[1]);
+		}
+		else {
 			batchControlCorrectFields[1] = false;
+			addIncorrect(fields[1]);
+		}
 		//field 2
-		if (Pattern.matches("[0-9]", fields[2]))
+		if (Pattern.matches("[0-9]", fields[2])) {
 			batchControlCorrectFields[2] = true;
-		else
+			addCorrect(fields[2]);
+		}
+		else {
 			batchControlCorrectFields[2] = false;
+			addIncorrect(fields[2]);
+		}
 		//field 3
-		if (Pattern.matches("[0-9]", fields[3]))
+		if (Pattern.matches("[0-9]", fields[3])) {
 			batchControlCorrectFields[3] = true;
-		else 
+			addCorrect(fields[3]);
+		}
+		else {
 			batchControlCorrectFields[3] = false;
+			addIncorrect(fields[3]);
+		}
 		//field 4
-		if (Pattern.matches("[0-9]", fields[4]))
+		if (Pattern.matches("[0-9]", fields[4])) {
 			batchControlCorrectFields[4] = true;
-		else 
+			addCorrect(fields[4]);
+		}
+		else {
 			batchControlCorrectFields[4] = false;
+			addIncorrect(fields[4]);
+		}
 		//field 5
-		if (Pattern.matches("[0-9]", fields[5]))
+		if (Pattern.matches("[0-9]", fields[5])) {
 			batchControlCorrectFields[5] = true;
-		else 
+			addCorrect(fields[5]);
+		}
+		else {
 			batchControlCorrectFields[5] = false;
+			addIncorrect(fields[5]);
+		}
 		//field 6
-		if (Pattern.matches("[0-9]", fields[6]))
+		if (Pattern.matches("[0-9]", fields[6])) {
 			batchControlCorrectFields[6] = true;
-		else 
+			addCorrect(fields[6]);
+		}
+		else {
 			batchControlCorrectFields[6] = false;
+			addIncorrect(fields[6]);
+		}
 		//field 7
-		if (fields[7].equals(VerifyBatch.getElement(5)))
+		/*if (fields[7].equals(VerifyBatch.getElement(5))) {
 			batchControlCorrectFields[7] = true;
-		else 
+			addCorrect(fields[7]);
+		}
+		else {
 			batchControlCorrectFields[7] = false;
+			addIncorrect(fields[7]);
+		}*/
 		//field 8
-		if (Pattern.matches("[A-Za-z0-9\\s]{6}", fields[8]))
+		if (Pattern.matches("[A-Za-z0-9\\s]{6}", fields[8])) {
 			batchControlCorrectFields[8] = true;
-		else 
+			addCorrect(fields[8]);
+		}
+		else {
 			batchControlCorrectFields[8] = false;
+			addIncorrect(fields[8]);
+		}
 		//field 9
-		if (Pattern.matches("\\s", fields[9]))
+		if (Pattern.matches("\\s", fields[9])) {
 			batchControlCorrectFields[9] = true;
-		else 
+			addCorrect(fields[9]);
+		}
+		else {
 			batchControlCorrectFields[9] = false;
+			addIncorrect(fields[9]);
+		}
 		//field 10
-		if (Pattern.matches("[\\s]{3}", fields[10]))
+		if (Pattern.matches("[\\s]{3}", fields[10])) {
 			batchControlCorrectFields[10] = true;
-		else 
+			addCorrect(fields[10]);
+		}
+		else {
 			batchControlCorrectFields[10] = false;
+			addIncorrect(fields[10]);
+		}
 		//field 11
-		if (Pattern.matches("[0-9]", fields[11]))
+		if (Pattern.matches("[0-9]", fields[11])) {
 			batchControlCorrectFields[11] = true;
-		else 
+			addCorrect(fields[11]);
+		}
+		else {
 			batchControlCorrectFields[11] = false;	
+			addIncorrect(fields[11]);
+		}
+	}
+	private static void addCorrect(String myAdd) {
+		displayString += myAdd;	
+	}
+	private static void addIncorrect(String myAdd) {
+		displayString += "<span class = 'incorrect'>"+myAdd+"</span>";	
 	}
 }
