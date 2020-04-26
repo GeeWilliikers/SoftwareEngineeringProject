@@ -105,7 +105,7 @@
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="19" y="30">Destination</text>
 </svg>
 <svg width="130" height="40">
-	<rect width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
+	<rect id="id1" width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">101000019</text>
 </svg>
@@ -284,6 +284,7 @@
 //		<!-- put script to make Validate button "work" -->
 		function myFunction() {
 			document.getElementById("messageTextBox").innerHTML = "File Validation in Process...";
+			document.getElementById("id1").stroke = "red";
 			window.scrollTo(0, 500);
 		}
 //	    document.getElementById("validate").addEventListener('change', function(){
