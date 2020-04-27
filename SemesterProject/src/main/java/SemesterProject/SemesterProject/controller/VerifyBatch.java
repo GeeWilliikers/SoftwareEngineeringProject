@@ -1,12 +1,15 @@
 package SemesterProject.SemesterProject.controller;
-
 import java.util.regex.*;
 
 public class VerifyBatch {
 	String batchText = "5220STRAWBERRYFIELDS                    8675307521PPDPAYROLL   191004191004   1101000010000001";
-	String[] fields = new String[14];
+	static String[] fields = new String[14];
 	boolean[] batchCorrectFields = new boolean[14];
-	public static String displayString ="";
+	public static String displayString = "";
+	
+	public static String getElement(int i) {
+		return fields[i];
+	}
 	
 	public VerifyBatch(String batchText) {
 		this.batchText = batchText;
@@ -44,7 +47,7 @@ public class VerifyBatch {
 	
 	private void batchCorrectFields() {
 		//field 1
-		if (fields[1].equals("5")) {
+		if (fields[1].equals("5"))	{
 			batchCorrectFields[1] = true;
 			addCorrect(fields[1]);
 		}
@@ -53,7 +56,7 @@ public class VerifyBatch {
 			addIncorrect(fields[1]);
 		}
 		//field 2
-		if (Pattern.matches("[0-9]{3}", fields[2]))	{
+		if (Pattern.matches("\\d{3}", fields[2]))	{
 			batchCorrectFields[2] = true;
 			addCorrect(fields[2]);
 		}
@@ -62,72 +65,72 @@ public class VerifyBatch {
 			addIncorrect(fields[2]);
 		}
 		//field 3
-		if (Pattern.matches("[A-z0-9 +]{16}", fields[3]))	{
-			addCorrect(fields[3]);
+		if (Pattern.matches("\\w\\d\\s{16}", fields[3]))	{
 			batchCorrectFields[3] = true;
+			addCorrect(fields[3]);
 		}
 		else 	{
 			batchCorrectFields[3] = false;
 			addIncorrect(fields[3]);
 		}
 		//field 4
-		if (Pattern.matches("[A-Za-z0-9 +]{20}", fields[4]))	{
-			addCorrect(fields[4]);
+		if (Pattern.matches("\\w\\d\\s{20}", fields[4]))	{
 			batchCorrectFields[4] = true;
+			addCorrect(fields[4]);
 		}
 		else 	{
 			batchCorrectFields[4] = false;
 			addIncorrect(fields[4]);
 		}
 		//field 5
-		if (Pattern.matches("[A-Z0-9]{10}", fields[5]))	{
-			addCorrect(fields[5]);
+		if (Pattern.matches("\\d{10}", fields[5]))	{
 			batchCorrectFields[5] = true;
+			addCorrect(fields[5]);
 		}
 		else 	{
 			batchCorrectFields[5] = false;
 			addIncorrect(fields[5]);
 		}
 		//field 6
-		if (Pattern.matches("[A-Za-z0-9]{3}", fields[6]))	{
-			addCorrect(fields[6]);
+		if (Pattern.matches("\\w\\d{3}", fields[6]))	{
 			batchCorrectFields[6] = true;
+			addCorrect(fields[6]);
 		}
 		else 	{
 			batchCorrectFields[6] = false;
 			addIncorrect(fields[6]);
 		}
 		//field 7
-		if (Pattern.matches("\\w+\\s*", fields[7]))	{
-			addCorrect(fields[7]);
+		if (Pattern.matches("\\w\\d\\s{10}", fields[7]))	{
 			batchCorrectFields[7] = true;
+			addCorrect(fields[7]);
 		}
 		else 	{
 			batchCorrectFields[7] = false;
 			addIncorrect(fields[7]);
 		}
 		//field 8
-		if (Pattern.matches("[A-Za-z0-9 +]{6}", fields[8]))	{
-			addCorrect(fields[8]);
+		if (Pattern.matches("\\w\\d\\s{6}", fields[8]))	{
 			batchCorrectFields[8] = true;
+			addCorrect(fields[8]);
 		}
 		else 	{
 			batchCorrectFields[8] = false;
 			addIncorrect(fields[8]);
 		}
 		//field 9
-		if (Pattern.matches("[0-9]{6}", fields[9]))	{
-			addCorrect(fields[9]);
+		if (Pattern.matches("\\d{6}", fields[9]))	{
 			batchCorrectFields[9] = true;
+			addCorrect(fields[9]);
 		}
 		else 	{
 			batchCorrectFields[9] = false;
 			addIncorrect(fields[9]);
 		}
 		//field 10
-		if (Pattern.matches("[ +]{3}", fields[10]))	{
-			addCorrect(fields[10]);
+		if (Pattern.matches("\\s{3}", fields[10]))	{
 			batchCorrectFields[10] = true;
+			addCorrect(fields[10]);
 		}
 		else 	{
 			batchCorrectFields[10] = false;
@@ -135,32 +138,31 @@ public class VerifyBatch {
 		}
 		//field 11
 		if (fields[11].equals("1"))	{
-			addCorrect(fields[11]);
 			batchCorrectFields[11] = true;
+			addCorrect(fields[11]);
 		}
 		else 	{
 			batchCorrectFields[11] = false;
 			addIncorrect(fields[11]);
 		}
 		//field 12
-		if (Pattern.matches("\\s+{8}", fields[12]))	{
-			addCorrect(fields[12]);
+		if (Pattern.matches("\\s{8}", fields[12]))	{
 			batchCorrectFields[12] = true;
+			addCorrect(fields[12]);
 		}
 		else 	{
 			batchCorrectFields[12] = false;
 			addIncorrect(fields[12]);
 		}
 		//field 13
-		if (Pattern.matches("[0-9]{7}", fields[13]))	{
-			addCorrect(fields[13]);
+		if (Pattern.matches("\\d{7}", fields[13]))	{
 			batchCorrectFields[13] = true;
+			addCorrect(fields[13]);
 		}
 		else 	{
-			batchCorrectFields[13] = false;
+			batchCorrectFields[13] = false;	
 			addIncorrect(fields[13]);
-		}
-		
+		}	
 	}
 	private static void addCorrect(String myAdd) {
 		displayString += myAdd;	

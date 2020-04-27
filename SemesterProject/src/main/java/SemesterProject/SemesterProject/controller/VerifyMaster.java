@@ -16,7 +16,12 @@ public class VerifyMaster {
 		VerifyHeader verifyHeader = new VerifyHeader(parts.getHeader());
 		VerifyBatch verifyBatch = new VerifyBatch(parts.getCompanyBatchHeader());
 		VerifyBatchControl verifyBatchControl = new VerifyBatchControl(parts.getCompanyBatchControl());
-		VerifyEntryDetailAddenda verifyEntryDetailAddenda = new VerifyEntryDetailAddenda(parts.getEntryDetailAddenda());
+		VerifyEntryDetailAddenda verifyEntryDetailAddenda = null;
+		if(parts.getEntryDetailAddenda() != "") 
+			verifyEntryDetailAddenda = new VerifyEntryDetailAddenda(parts.getEntryDetailAddenda());
+		else
+			verifyEntryDetailAddenda.displayString = "";
+
 		//update once we have VerifyEntries and VerifyFileControl done
 		//VerifyEntries verifyEntries = new VerifyEntries(parts.getEntries());
 		//VerifyFileControl verifyFileControl = new VerifyFileControl(parts.getFileControl());
