@@ -115,7 +115,7 @@ public class ExtractParts {
 				return lines[i];
 			}
 		}
-		return "entry detail addenda not found";
+		return "";
 	}
 	
 	

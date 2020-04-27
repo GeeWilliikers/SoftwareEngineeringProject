@@ -15,7 +15,7 @@
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
 	</properties>
-
+	
 	<dependencies>
 		<!-- Spring core & mvc -->
 		<dependency>
@@ -53,7 +53,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
 		<!-- Servlet Spec -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -66,6 +65,25 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
+		</dependency>
+		
+		<!--  trying to get multipart to work -->
+		<dependency>
+    		<groupId>commons-fileupload</groupId>
+    		<artifactId>commons-fileupload</artifactId>
+    		<version>1.3.1</version>
+		</dependency>
+
+		<!-- Apache Commons IO --> 
+		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>2.4</version>
+		</dependency>
+		<dependency>
+    		<groupId>net.imagej</groupId>
+    		<artifactId>ij</artifactId>
+    		<version>1.51h</version>
 		</dependency>
 	</dependencies>
 

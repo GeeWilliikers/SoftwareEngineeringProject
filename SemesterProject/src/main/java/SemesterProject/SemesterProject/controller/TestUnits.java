@@ -9,12 +9,12 @@ import java.io.File;
  * amount error
  */
 public class TestUnits {
-	private String correctTestString;
-	private File correctTestFile;
-	private String amountErrorTestString;
-	private File amountErrorTestFile;
-	private String hashErrorTestString;
-	private File hashErrorTestFile;
+	public static String correctTestString;
+	public File correctTestFile;
+	public String amountErrorTestString;
+	public File amountErrorTestFile;
+	public String hashErrorTestString;
+	public File hashErrorTestFile;
 	public TestUnits()	{
 		correctTestString =  
 				"101 10100001986753075211909150700A094101Testing1 Bank          THE FAB FOUR CORP              \r\n" + 

@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Chris
 Build-Jdk: 1.8.0_241
+=======
+Built-By: Nehemiah
+Build-Jdk: 1.8.0_201
+>>>>>>> master
 Created-By: Maven Integration for Eclipse
 

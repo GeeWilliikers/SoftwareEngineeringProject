@@ -1,11 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-   
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
 		<title>Commerce Bank Validation Tool</title>
+		
 		
 		<style media="screen">
 		#openFile, #validate, #cancel {
@@ -17,7 +18,6 @@
 			cursor: pointer;
 		}
 		
-<<<<<<< HEAD
 		#cancel: hover {
 			background-color: white;
 			color: #006400;
@@ -47,8 +47,6 @@
 		
 		}
 		
-=======
->>>>>>> master
 		#validate, #cancel {
 			padding: 13px;
 			color: white;
@@ -67,37 +65,33 @@
 		font-family: sans-serif;
 		color: #aaa;
 		}
-<<<<<<< HEAD
 		
 		#clear {
 		stroke-width: "1";
 		stroke: "black";
 		}
-=======
->>>>>>> master
 		</style>
 </head>
 <body>
 
-	<img src="commerce-bank-logo-2x.png" alt="Commerce logo">
+	<img src="/logo" alt="Commerce logo">
 	<h1>A Team Commerce Bank Project</h1>
         <p><b>NACHA Validation Tool</b></p>
-	<input type="file" id="openFile" />
-<<<<<<< HEAD
-	<input type="button" id="validate" onclick = "myFunction()" value="Validate File" />
-	
-	<input type="button" id="cancel" onclick = "window.location.reload()" value="Cancel" />
-	<br>
-	
-	
-	
+    <form action ="upload" method ="post" enctype="multipart/form-data">
+    
+		<input type="file" id="openFile" name="file" >
+		<button type="submit" id="validate" value="upload file" >Validate</button>
+		<input type="button" id="cancel" value="Cancel" />
+	</form>
 	<textarea id="FileContents" rows="35" cols="95"></textarea>
 	
+	<!-- button for sending test parameters -->
+	
+	<form action="test" method = "get">
+		<button type ="submit" id="testButton">TestValues</button>
+	</form>
 	<div id="messageBox">					Message Box</div>
-
 	<p id="messageTextBox">   THIS IS WHERE THE MESSAGES WILL GO.  </p>
-
-
 	<div id="messageBox1">					Company Specification/File Details</div>	
 	
 	<!-- Chris code goes here -->
@@ -112,9 +106,9 @@
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="19" y="30">Destination</text>
 </svg>
 <svg width="130" height="40">
-	<rect id="id1" width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
+	<rect width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">101000019</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">${immediateDestination }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -124,7 +118,7 @@
 <svg width="130" height="40">
 	<rect width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">741258964</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">${immediateOrigin}</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -134,7 +128,7 @@
 <svg width="230" height="40">
 	<rect width="230" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="8" y="23">THE FAB FOUR CORP</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="8" y="23">${immediateOriginName }</text>
 </svg>
 <br/>
 <br/>
@@ -151,7 +145,7 @@
 <svg width="240" height="40">
 	<rect width="240" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="10" y="23">STRAWBERRYFIELDS</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="10" y="23">${companyName }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -161,7 +155,7 @@
 <svg width="130" height="40">
 	<rect width="130" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">741258964</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">${bhCompanyID }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -171,7 +165,7 @@
 <svg width="130" height="40">
 	<rect width="130" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">10/31/2019</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">${effectiveDate }</text>
 </svg>
 <br/>
 <br/>
@@ -188,7 +182,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">18</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">${bcEntryAddendaCount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -197,7 +191,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">0181800018</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">${bcEntryHash }</text>
 </svg>
 <br/>
 <svg width="110" height="40">
@@ -208,7 +202,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$0.00</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${bcTTLDebitEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -218,7 +212,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$0.83</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${bcTTLCreditEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -228,7 +222,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="50" y="23">741258964</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="50" y="23">${bcCompanyID }</text>
 </svg>
 <br/>
 <br/>
@@ -245,7 +239,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">18</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">${fcEntryAddendaCount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -254,7 +248,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">0181800018</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">${fcEntryHash }</text>
 </svg>
 <br/>
 <svg width="110" height="40">
@@ -265,7 +259,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$0.00</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${fcTTLDebitEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -275,38 +269,8 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$0.83</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${fcTTLCreditEntryAmount }</text>
 </svg>
-	
-	<script type="text/javascript">
-	<!-- This gets the element on the page, when the button is clicked, calls function to display onto screen -->'
-	document.getElementById("openFile").addEventListener('change', function(){
-		var fr = new FileReader();
-			fr.onload = function(){
-			document.getElementById("FileContents").textContent = this.result;
-			}
-		fr.readAsText(this.files[0]);
-})
-	
-//		<!-- put script to make Validate button "work" -->
-		function myFunction() {
-			document.getElementById("messageTextBox").innerHTML = "File Validation in Process...";
-			document.getElementById("id1").stroke = "red";
-			window.scrollTo(0, 500);
-		}
-//	    document.getElementById("validate").addEventListener('change', function(){
-//	    	
-//	    	var validateText = "Validate button has been hit. Errors will appear here."
-//	   
-//		  document.getElementById("messageTextBox").textContent = validateText;
-//	 })
-	  
-=======
-	<input type="button" id="validate" value="Validate File" />
-	<input type="button" id="cancel" value="Cancel" />
-	<br>
-	
-	<textarea id="FileContents" rows="35" cols="95"></textarea>
 	
 	<script type="text/javascript">
 		document.getElementById("openFile").addEventListener('change', function(){
@@ -316,7 +280,11 @@
 				}
 			fr.readAsText(this.files[0]);
 	})
->>>>>>> master
+		document.addEventListener("DOMContentLoaded", function(){
+   			console.log(${errors[0]});
+		});
 	</script>
+	<br>
+	
 </body>
 </html>
