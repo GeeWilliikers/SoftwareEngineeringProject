@@ -49,6 +49,7 @@ public class HomeController {
 		modelAndView.addObject("fcTTLDebitEntryAmount", "25.00");
 		modelAndView.addObject("fcTTLCreditEntryAmount", "78.00");
 		String displayString = testUnits.getCorrectString();
+		modelAndView.addObject("boxErrors", new boolean[] {true, false, true, true, true, true, true, false, true, true, true, true, true, false, true});
 		modelAndView.addObject("displayString", displayString);
 		
 		return modelAndView;
