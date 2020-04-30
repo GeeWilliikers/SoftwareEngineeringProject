@@ -20,14 +20,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	public TestUnits testUnits = new TestUnits();
+	public GetUploadDirectory getUploadDirectory = new GetUploadDirectory();
 	@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
 	}
-	public String getUploadDirectory()	{
-		String uploadDirectory = System.getProperty("user.dir").substring(0, System.getProperty("user.dir").length()-8)+"\\Project\\SemesterProject\\src\\main\\webapp\\resources\\uploads\\";		
-		return uploadDirectory;		
-	}
+//	public String getUploadDirectory()	{
+//		String uploadDirectory = System.getProperty("user.dir").substring(0, System.getProperty("user.dir").length()-8)+"\\Project\\SemesterProject\\src\\main\\webapp\\resources\\uploads\\";		
+//		return uploadDirectory;		
+//	}
 	
 	@RequestMapping(method = RequestMethod.GET,value = "/test")
 	public ModelAndView frontEndTest()
@@ -62,7 +63,7 @@ public class HomeController {
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("uploadStatusView");
 		System.out.println("/upload called");
-		Path fileNameAndPath = Paths.get(getUploadDirectory(), file.getOriginalFilename());
+		Path fileNameAndPath = Paths.get(getUploadDirectory.uploadDirectory, file.getOriginalFilename());
 		
 		try {
 			Files.write(fileNameAndPath,file.getBytes());
@@ -71,23 +72,26 @@ public class HomeController {
 			e.printStackTrace();
 			System.out.println("problem with /upload in file 'FileUpload'");
 		}
+		System.out.println("before VerifyMaster initiation");
 		VerifyMaster verifyMaster = new VerifyMaster(fileNameAndPath.toFile());
-		modelAndView.addObject("immediateDestination", verifyMaster.displayInfo[0]);
-		modelAndView.addObject("immediateOrigin", verifyMaster.displayInfo[1]);
-		modelAndView.addObject("immediateOriginName", verifyMaster.displayInfo[2]);
-		modelAndView.addObject("companyName", verifyMaster.displayInfo[3]);
-		modelAndView.addObject("bhCompanyID", verifyMaster.displayInfo[4]);
-		modelAndView.addObject("effectiveDate", verifyMaster.displayInfo[5]);
-		modelAndView.addObject("bcEntryAddendaCount", verifyMaster.displayInfo[6]);
-		modelAndView.addObject("bcEntryHash", verifyMaster.displayInfo[7]);
-		modelAndView.addObject("bcTTLDebitEntryAmount", verifyMaster.displayInfo[8]);
-		modelAndView.addObject("bcTTLCreditEntryAmount", verifyMaster.displayInfo[9]);
-		modelAndView.addObject("bcCompanyID", verifyMaster.displayInfo[10]);
-		modelAndView.addObject("fcEntryAddendaCount", verifyMaster.displayInfo[11]);
-		modelAndView.addObject("fcEntryHash", verifyMaster.displayInfo[12]);
-		modelAndView.addObject("fcTTLDebitEntryAmount", verifyMaster.displayInfo[13]);
-		modelAndView.addObject("fcTTLCreditEntryAmount", verifyMaster.displayInfo[14]);
+		System.out.println("verifyMaster initiation done");
+		modelAndView.addObject("immediateDestination", verifyMaster.displayBoxes[0]);
+		modelAndView.addObject("immediateOrigin", verifyMaster.displayBoxes[1]);
+		modelAndView.addObject("immediateOriginName", verifyMaster.displayBoxes[2]);
+		modelAndView.addObject("companyName", verifyMaster.displayBoxes[3]);
+		modelAndView.addObject("bhCompanyID", verifyMaster.displayBoxes[4]);
+		modelAndView.addObject("effectiveDate", verifyMaster.displayBoxes[5]);
+		modelAndView.addObject("bcEntryAddendaCount", verifyMaster.displayBoxes[6]);
+		modelAndView.addObject("bcEntryHash", verifyMaster.displayBoxes[7]);
+		modelAndView.addObject("bcTTLDebitEntryAmount", verifyMaster.displayBoxes[8]);
+		modelAndView.addObject("bcTTLCreditEntryAmount", verifyMaster.displayBoxes[9]);
+		modelAndView.addObject("bcCompanyID", verifyMaster.displayBoxes[10]);
+		modelAndView.addObject("fcEntryAddendaCount", verifyMaster.displayBoxes[11]);
+		modelAndView.addObject("fcEntryHash", verifyMaster.displayBoxes[12]);
+		modelAndView.addObject("fcTTLDebitEntryAmount", verifyMaster.displayBoxes[13]);
+		modelAndView.addObject("fcTTLCreditEntryAmount", verifyMaster.displayBoxes[14]);
 		modelAndView.addObject("displayString", verifyMaster.displayString);
+		modelAndView.addObject("boxErrors", verifyMaster.displayBoxesCorrect);
 		verifyMaster = null;
 		return modelAndView;
 		

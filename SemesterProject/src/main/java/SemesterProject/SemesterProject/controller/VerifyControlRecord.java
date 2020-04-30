@@ -5,10 +5,17 @@ public class VerifyControlRecord {
 	String controlRecordText;
 	String[] fields = new String[9];
 	boolean[] controlRecordCorrect = new boolean[9];
-	public static String displayString = "";
+	String myHash;
+	public static String displayString;
+	int ttlDebit;
+	int ttlCredit;
 	
-	public VerifyControlRecord(String controlRecordText) {
+	public VerifyControlRecord(String controlRecordText, String hash, int ttlDebit, int ttlCredit) {
 		int j = 0;
+		displayString = "";
+		myHash = hash;
+		this.ttlCredit = ttlCredit;
+		this.ttlDebit = ttlDebit;
 		
 		fields[1] = controlRecordText.substring(j, 1);
 		j++;
@@ -35,7 +42,7 @@ public class VerifyControlRecord {
 		}
 		else	{
 			controlRecordCorrect[1] = false;
-			addCorrect(fields[1]);
+			addIncorrect(fields[1]);
 		}
 		
 		if (Pattern.matches("\\d{6}", fields[2]))	{
@@ -44,7 +51,7 @@ public class VerifyControlRecord {
 		}
 		else	{
 			controlRecordCorrect[2] = false;
-			addCorrect(fields[2]);
+			addIncorrect(fields[2]);
 		}
 		
 		if (Pattern.matches("\\d{6}", fields[3]))	{
@@ -53,7 +60,7 @@ public class VerifyControlRecord {
 		}
 		else	{
 			controlRecordCorrect[3] = false;
-			addCorrect(fields[3]);
+			addIncorrect(fields[3]);
 		}
 		
 		if (Pattern.matches("\\d{8}", fields[4]))	{
@@ -62,34 +69,32 @@ public class VerifyControlRecord {
 		}
 		else	{
 			controlRecordCorrect[4] = false;
-			addCorrect(fields[4]);
+			addIncorrect(fields[4]);
 		}
-		
-		if (Pattern.matches("\\d{10}", fields[5]))	{
+		if (Pattern.matches("\\d{10}", fields[5]) && Pattern.matches("0*"+myHash,fields[5]))	{
 			controlRecordCorrect[5] = true;
 			addCorrect(fields[5]);
 		}
 		else	{
 			controlRecordCorrect[5] = false;
-			addCorrect(fields[5]);
+			addIncorrect(fields[5]);
 		}
 		
-		if (Pattern.matches("\\d{12}", fields[6]))	{
+		if (Pattern.matches("\\d{12}", fields[6]) && Integer.parseInt(fields[6]) == ttlDebit)	{
 			controlRecordCorrect[6] = true;
 			addCorrect(fields[6]);
 		}
 		else	{
 			controlRecordCorrect[6] = false;
-			addCorrect(fields[6]);
+			addIncorrect(fields[6]);
 		}
-		
-		if (Pattern.matches("\\d{12}", fields[7]))	{
+		if (Pattern.matches("\\d{12}", fields[7]) && Integer.parseInt(fields[7]) == ttlCredit)	{
 			controlRecordCorrect[7] = true;
 			addCorrect(fields[7]);
 		}
 		else	{
 			controlRecordCorrect[7] = false;
-			addCorrect(fields[7]);
+			addIncorrect(fields[7]);
 		}
 		
 		if (Pattern.matches("\\s{39}", fields[8]))	{
@@ -98,7 +103,7 @@ public class VerifyControlRecord {
 		}
 		else	{
 			controlRecordCorrect[8] = false;
-			addCorrect(fields[8]);
+			addIncorrect(fields[8]);
 		}
 	}
 	private static void addCorrect(String myAdd) {

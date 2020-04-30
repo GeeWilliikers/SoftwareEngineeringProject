@@ -8,6 +8,10 @@
 		<title>Commerce Bank Validation Tool</title>
 		
 		<style media="screen">
+		
+		#FileContents	{
+			white-space: pre; 
+		}
 		#openFile, #validate, #cancel {
 			padding: 10px;
 			color: white;

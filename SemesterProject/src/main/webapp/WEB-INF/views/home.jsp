@@ -9,6 +9,11 @@
 		
 		
 		<style media="screen">
+		
+		#FileContents	{
+			white-space: pre; 
+		}
+		
 		#openFile, #validate, #cancel {
 			padding: 10px;
 			color: white;
@@ -271,8 +276,17 @@
 	<!-- TODO: get text from file and turn red if error -->
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">$${fcTTLCreditEntryAmount }</text>
 </svg>
+
+<p id = "testing array"></p>
 	
 	<script type="text/javascript">
+	/*Not currently working
+	<c:forEach var="error" items="${boxErrors}">
+    	errorObj = { errorName: '${error}' };
+    	boxErrors.push(errorObj);                                  
+	</c:forEach>
+	document.getElementById("testing array").text = boxErrors[0];
+	*/
 		document.getElementById("openFile").addEventListener('change', function(){
 			var fr = new FileReader();
 				fr.onload = function(){

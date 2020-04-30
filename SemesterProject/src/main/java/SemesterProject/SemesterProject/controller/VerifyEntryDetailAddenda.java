@@ -5,10 +5,11 @@ public class VerifyEntryDetailAddenda {
 	String entryDetailAddendaText;
 	String[] fields = new String[6];
 	boolean[] entryDetailAddendaCorrect = new boolean[6];
-	public static String displayString ="";
+	public static String displayString;
 	
 	public VerifyEntryDetailAddenda(String entryDetailAddendaText) {
 		this.entryDetailAddendaText = entryDetailAddendaText;
+		displayString = "";
 		
 		int j = 1;
 		

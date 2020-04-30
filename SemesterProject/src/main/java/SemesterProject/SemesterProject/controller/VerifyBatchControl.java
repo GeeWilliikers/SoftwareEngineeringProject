@@ -5,10 +5,14 @@ public class VerifyBatchControl {
 	String batchControlText;
 	String[] fields = new String[12];
 	boolean[] batchControlCorrectFields = new boolean[12];
-	public static String displayString ="";
+	public static String displayString;
+	int ttlDebit, ttlCredit;
 	
-	public VerifyBatchControl(String batchControlText) {
+	public VerifyBatchControl(String batchControlText, int ttlDebit, int ttlCredit) {
 		this.batchControlText = batchControlText;
+		displayString = "";
+		this.ttlDebit = ttlDebit;
+		this.ttlCredit = ttlCredit;
 		
 		//field
 		int j = 0;
@@ -75,7 +79,7 @@ public class VerifyBatchControl {
 			addIncorrect(fields[4]);
 		}
 		//field 5
-		if (Pattern.matches("\\d{12}", fields[5]))	{
+		if (Pattern.matches("\\d{12}", fields[5]) && Integer.parseInt(fields[5]) == ttlDebit)	{
 			batchControlCorrectFields[5] = true;
 			addCorrect(fields[5]);
 		}
@@ -84,7 +88,7 @@ public class VerifyBatchControl {
 			addIncorrect(fields[5]);
 		}
 		//field 6
-		if (Pattern.matches("\\d{12}", fields[6]))	{
+		if (Pattern.matches("\\d{12}", fields[6]) && Integer.parseInt(fields[6]) == ttlCredit)	{
 			batchControlCorrectFields[6] = true;
 			addCorrect(fields[6]);
 		}

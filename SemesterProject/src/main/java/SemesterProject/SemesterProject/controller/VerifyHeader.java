@@ -9,10 +9,11 @@ public class VerifyHeader {
 	//array fields will start at index one and correspond to field 1, field 2 = index 2, field 3 = index 3, etc
 	public String fields[] = new String[14];
 	public boolean correctFields[] = new boolean[14];
-	public static String displayString ="";
+	public static String displayString;
 	
 	public VerifyHeader(String headerText)
 	{
+		displayString = "";
 		this.headerText = headerText;
 		
 		//shows where we are in the string
@@ -110,18 +111,15 @@ public class VerifyHeader {
 			correctFields[6] = true;
 			addCorrect(fields[6]);
 		}
-		else
-		{
-			try	{
-				LocalDate.parse(fields[6], DateTimeFormatter.ofPattern("HHmm"));
-				correctFields[6] = true;
-				addCorrect(fields[6]);
-			}
-			catch(DateTimeParseException e)	{
-				correctFields[6] = false;
-				addIncorrect(fields[6]); 
-			}
+		else if (Pattern.matches("([01]?[0-9]|2[0-3])[0-5][0-9]", fields[6]))	{
+			correctFields[6] = true;
+			addCorrect(fields[6]);
 		}
+		else	{
+			correctFields[6] = false;
+			addIncorrect(fields[6]);
+		}
+			
 		
 		//field 7
 		if(Pattern.matches("[A-Z]", fields[7]) || Pattern.matches("\\d", fields[7]) )	{

@@ -86,7 +86,8 @@ public class ExtractParts {
 		//if no lines beginning with '6' are found, then return null
 		if(tempList.isEmpty())
 			return null;
-		return tempList.toArray(new String[tempList.size()]);
+		String[] returnArray = tempList.toArray(new String[tempList.size()]);
+		return returnArray;
 	}
 	private String pullCompanyBatchControl()
 	{

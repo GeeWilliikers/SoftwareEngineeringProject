@@ -5,7 +5,7 @@ public class VerifyBatch {
 	String batchText = "5220STRAWBERRYFIELDS                    8675307521PPDPAYROLL   191004191004   1101000010000001";
 	static String[] fields = new String[14];
 	boolean[] batchCorrectFields = new boolean[14];
-	public static String displayString = "";
+	public static String displayString;
 	
 	public static String getElement(int i) {
 		return fields[i];
@@ -13,6 +13,7 @@ public class VerifyBatch {
 	
 	public VerifyBatch(String batchText) {
 		this.batchText = batchText;
+		displayString = "";
 		
 		//field
 		int j = 0;
@@ -65,7 +66,7 @@ public class VerifyBatch {
 			addIncorrect(fields[2]);
 		}
 		//field 3
-		if (Pattern.matches("\\w\\d\\s{16}", fields[3]))	{
+		if (Pattern.matches("[\\w_\\d_\\s]{16}", fields[3]))	{
 			batchCorrectFields[3] = true;
 			addCorrect(fields[3]);
 		}
@@ -92,7 +93,7 @@ public class VerifyBatch {
 			addIncorrect(fields[5]);
 		}
 		//field 6
-		if (Pattern.matches("\\w\\d{3}", fields[6]))	{
+		if (Pattern.matches("[\\w_\\d]{3}", fields[6]))	{
 			batchCorrectFields[6] = true;
 			addCorrect(fields[6]);
 		}
@@ -101,7 +102,7 @@ public class VerifyBatch {
 			addIncorrect(fields[6]);
 		}
 		//field 7
-		if (Pattern.matches("\\w\\d\\s{10}", fields[7]))	{
+		if (Pattern.matches("[\\w_\\d_\\s]{10}", fields[7]))	{
 			batchCorrectFields[7] = true;
 			addCorrect(fields[7]);
 		}
@@ -110,7 +111,7 @@ public class VerifyBatch {
 			addIncorrect(fields[7]);
 		}
 		//field 8
-		if (Pattern.matches("\\w\\d\\s{6}", fields[8]))	{
+		if (Pattern.matches("[\\w_\\d_\\s]{6}", fields[8]))	{
 			batchCorrectFields[8] = true;
 			addCorrect(fields[8]);
 		}
