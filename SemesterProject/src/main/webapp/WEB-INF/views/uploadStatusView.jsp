@@ -83,7 +83,6 @@
 </head>
 <body>
 
-	<img src="commerce-bank-logo-2x.png" alt="Commerce logo">
 	<h1>A Team Commerce Bank Project</h1>
         <p><b>NACHA Validation Tool</b></p>
     <form action ="upload" method ="post" enctype="multipart/form-data">
@@ -95,20 +94,12 @@
 	<p id="FileContents" rows="35" cols="95">${displayString}</p>
 	
 	<!-- button for sending test parameters -->
-	
-	<form action="test" method = "get">
-		<button type ="submit" id="testButton">TestValues</button>
-	</form>
+
 	<div id="messageBox">					Message Box</div>
 	<p id="messageTextBox">   THIS IS WHERE THE MESSAGES WILL GO.  </p>
 	<div id="messageBox1">					Company Specification/File Details</div>	
 	
 	<!-- Chris code goes here -->
-<svg width=230" height="20">
-	<rect width="230" height="20" fill="white" stroke-width="2" stroke="black"/>
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="15" y="15">FILE HEADER RECORD</text>
-</svg>
-<br/>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
 	<text fill="000000" font-size="15" font-family="Times New Roman" x="24" y="15">Immediate</text>
@@ -117,7 +108,7 @@
 <svg width="130" height="40">
 	<rect width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">${immediateDestination }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${immediateDestination }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -127,7 +118,7 @@
 <svg width="130" height="40">
 	<rect width="120" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="48" y="23">${immediateOrigin}</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${immediateOrigin}</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -137,7 +128,7 @@
 <svg width="230" height="40">
 	<rect width="230" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="8" y="23">${immediateOriginName }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${immediateOriginName }</text>
 </svg>
 <br/>
 <br/>
@@ -154,7 +145,7 @@
 <svg width="240" height="40">
 	<rect width="240" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="10" y="23">${companyName }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${companyName }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -164,7 +155,7 @@
 <svg width="130" height="40">
 	<rect width="130" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">${bhCompanyID }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${bhCompanyID }</text>
 </svg>
 <svg width="90" height="40">
 	<rect width="90" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -174,7 +165,7 @@
 <svg width="130" height="40">
 	<rect width="130" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="60" y="23">${effectiveDate }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${effectiveDate }</text>
 </svg>
 <br/>
 <br/>
@@ -191,7 +182,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">${bcEntryAddendaCount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${bcEntryAddendaCount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -200,7 +191,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">${bcEntryHash }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${bcEntryHash }</text>
 </svg>
 <br/>
 <svg width="110" height="40">
@@ -211,7 +202,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${bcTTLDebitEntryAmount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">$${bcTTLDebitEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -221,7 +212,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${bcTTLCreditEntryAmount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">$${bcTTLCreditEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -231,7 +222,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="50" y="23">${bcCompanyID }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${bcCompanyID }</text>
 </svg>
 <br/>
 <br/>
@@ -248,7 +239,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="100" y="23">${fcEntryAddendaCount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${fcEntryAddendaCount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -257,7 +248,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="42" y="23">${fcEntryHash }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">${fcEntryHash }</text>
 </svg>
 <br/>
 <svg width="110" height="40">
@@ -268,7 +259,7 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${fcTTLDebitEntryAmount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">$${fcTTLDebitEntryAmount }</text>
 </svg>
 <svg width="110" height="40">
 	<rect width="110" height="40" fill="white" stroke-width="2" stroke="black"/>
@@ -278,9 +269,8 @@
 <svg width="143" height="40">
 	<rect width="143" height="40" fill="white" stroke-width="1" stroke="black"/>
 	<!-- TODO: get text from file and turn red if error -->
-	<text fill="000000" font-size="15" font-family="Times New Roman" x="85" y="23">$${fcTTLCreditEntryAmount }</text>
+	<text fill="000000" font-size="15" font-family="Times New Roman" x="1" y="23">$${fcTTLCreditEntryAmount }</text>
 </svg>
-	<p id = "testing array">This is where errors go</p>
 	<script type="text/javascript">
 		/*This does not currently work
 		var boxErrors = [];

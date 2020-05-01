@@ -79,7 +79,6 @@
 </head>
 <body>
 
-	<img src="/logo" alt="Commerce logo">
 	<h1>A Team Commerce Bank Project</h1>
         <p><b>NACHA Validation Tool</b></p>
     <form action ="upload" method ="post" enctype="multipart/form-data">
@@ -91,10 +90,7 @@
 	<textarea id="FileContents" rows="35" cols="95"></textarea>
 	
 	<!-- button for sending test parameters -->
-	
-	<form action="test" method = "get">
-		<button type ="submit" id="testButton">TestValues</button>
-	</form>
+
 	<div id="messageBox">					Message Box</div>
 	<p id="messageTextBox">   THIS IS WHERE THE MESSAGES WILL GO.  </p>
 	<div id="messageBox1">					Company Specification/File Details</div>	

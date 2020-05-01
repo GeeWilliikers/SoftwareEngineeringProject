@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	public TestUnits testUnits = new TestUnits();
-	public GetUploadDirectory getUploadDirectory = new GetUploadDirectory();
+	public getUploadDirectory getUploadDirectory = new getUploadDirectory();
 	@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
